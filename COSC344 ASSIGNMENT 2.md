@@ -180,10 +180,10 @@ Definition: 1NF and every non-key attribute is fully dependent on the primary ke
 
 ##### Building
 - Postcode is dependent only on street name and suburb, but not street number
-- Remove postcode to its own entity
+- Remove postcode to its own entity, make a foreign key reference
 
 - ##### Building
-| <u>Street_Number</u> | <u>Street_Name</u> | <u>Suburb</u> | Building_Name | Campus_Name<br>(REFERENCES Campus) |
+| <u>Street_Number</u> | <u>Street_Name</u><br>(REFERENCES postcode) | <u>Suburb</u><br>(REFERENCES postcode) | Building_Name | Campus_Name<br>(REFERENCES Campus) |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 
 - ##### Postcode
@@ -204,7 +204,7 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 <!-- TODO: Make this a diagram -->
 
 ### Building
-| <u>Street_Number</u> | <u>Street_Name</u><br>(REFERENCES Postcode) | <u>Suburb</u><br>(REFERENCES Postcode) | Building_Name | Campus_Name<br>(REFERENCES Campus) |
+| <u>Street_Number</u> | <u>Street_Name</u><br>(REFERENCES postcode) | <u>Suburb</u><br>(REFERENCES postcode) | Building_Name | Campus_Name<br>(REFERENCES Campus) |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 
 ### Room
