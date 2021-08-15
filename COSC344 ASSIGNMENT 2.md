@@ -88,6 +88,16 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | <u>Street_Number</u> | <u>Street_Name</u> | <u>Suburb</u> | Postcode | Name |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 
+##### Department
+
+| <u>Name</u> | Number_Of_Academic_Staff | Number_Of_Nonacademic_Staff |
+| ----------- | ------------------------ | --------------------------- |
+
+##### Course 
+
+| <u>Name</u> | Years_Required | Undergraduate | Postgraduate |
+| ----------- | -------------- | ------------- | ------------ |
+
 ---
 ## Step 2: Mapping Weak Entity Types
 
