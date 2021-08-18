@@ -133,6 +133,17 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 - Already done in step 2 (weak entity mapping)
 
 ---
+## Step 4.5: Mapping of Binary 2:N Relationships
+
+##### Enrolled_In (Student 2:N Course)
+- Add as a foreign key to Student the primary key of the first Course
+- Add as a foreign key to Student the primary key of the second Course
+
+##### Student
+| <u>Student_ID</u> | Name | Phone | Address | Enrollment_Date | Graduate_Date | Graduated_Bool | Course_One<br>(REFERENCES Course) | Course_Two<br>(REFERENCES Course |
+| ----------------- | ---- | ----- | ------- | --------------- | ------------- | -------------- | ----------------------------------| ---------------------------------| 
+
+---
 ## Step 5: Mapping of Binary M:N Relationships
 
 ##### Based In (Building M:N Department)
