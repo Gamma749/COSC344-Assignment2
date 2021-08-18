@@ -156,6 +156,20 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | <u>Staff_Member_Id</u><br>(REFERENCES Staff) | <u>Department_Name</u><br>(REFERENCES Department) |
 | -------------------------------------------- | ------------------------------------------------- |
 
+##### Counts_Toward(Paper M:N Course)
+- Create new Relation with primary key of each related entity
+
+##### Paper_Counts_Toward_Course
+| <u>Paper_Code</u><br>(REFERENCES Paper) | <u>Course_Name</u><br>(REFERENCES Course) |
+| --------------------------------------- | ----------------------------------------- |
+
+##### Possible_Major_For(Department M:N Course)
+- Create new Relation with primary key of each related entity 
+
+##### Department_Offers_Major_For_Course
+| <u>Department_Name</u><br>(REFERENCES Department) | <u>Course_Name</u><br>(REFERENCES Course) |
+| ------------------------------------------------- | ----------------------------------------- |
+
 ---
 ## Step 6: Mapping of Multi-valued attributes
 
