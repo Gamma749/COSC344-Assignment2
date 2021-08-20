@@ -254,12 +254,12 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 | <u>Street_Name</u> | <u>Suburb</u> | Postcode |
 | ----------- | ----------- | ----------- |
 
-##### Department
+### Department
 
 | <u>Name</u> | Number_Of_Academic_Staff | Number_Of_Nonacademic_Staff |
 | ----------- | ------------------------ | --------------------------- |
 
-##### Course 
+### Course 
 
 | <u>Name</u> | Years_Required | Level |
 | ----------- | -------------- | ------------- |
@@ -272,16 +272,16 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 | <u>Paper_Code</u><br>(REFERENCES Paper) | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  | <u> Room Number</u> |
 | ----------- | ----------- | ----------- | ----------- |----------- |
 
-##### Staff_Member_Works_For_Department
+### Staff_Member_Works_For_Department
 | <u>Staff_Member_Id</u><br>(REFERENCES Staff) | <u>Department_Name</u><br>(REFERENCES Department) |
 | -------------------------------------------- | ------------------------------------------------- |
 
-##### Paper_Counts_Toward_Course
+### Paper_Counts_Toward_Course
 | <u>Paper_Code</u><br>(REFERENCES Paper) | <u>Course_Name</u><br>(REFERENCES Course) |
 | --------------------------------------- | ----------------------------------------- |
 
 
-##### Department_Offers_Major_For_Course
+### Department_Offers_Major_For_Course
 | <u>Department_Name</u><br>(REFERENCES Department) | <u>Course_Name</u><br>(REFERENCES Course) |
 | ------------------------------------------------- | ----------------------------------------- |
 
