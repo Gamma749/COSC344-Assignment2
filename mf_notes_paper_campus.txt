@@ -49,11 +49,11 @@ STEPS
  3. Map binary 1:1 relationships		- DEAN_OF
 		- Foreign Key
 			- R = DEAN_OF
-			- S = Department - Include Key of T (Staff)
+			- S = Campus - Include Key of T (Staff) for total participation
 			
  4. Map binary 1:N relationships		- STUDENT_AT
 		- S = Student - the N-side
-		- Include primary key of T (Campus)
+		- Include primary key of T (Campus) as the N side
 		
  5. Map binary M:N relationships		- TEACHES, OFFERED_AT, TAKES
 		- For each binary M:N relation, create new relation S
@@ -65,6 +65,7 @@ STEPS
 		- Primary key = R = A (attribute value) + K (primary key of relation)
 		- 1 Paper : N Semesters
 		- Semesters(Paper Code, Semester)
+
  7. Map N-ary relationships
 		- Initially none, but table 'takes' requires extra keys, year and semester in case the student takes the same paper multiple times. 
 
@@ -75,7 +76,9 @@ Relational Data
  
 Paper
 Paper_Code__ | Semester (Mult-Val) | Credits
-->
+-> | 1NF
+Paper_Code__ | Semester (sing-val) | Credits
+-> | 2NF
 Paper_Code__ | Credits
 Paper_Code__ | Semester (Enum) 					-Splitting reduces redundancy? (Credits not duplicated.)
 
@@ -83,13 +86,13 @@ Campus
 _Name__ | Main Office Address | Phone | Email | Dean (Staff_ID)
 
 TEACHES (Staff, Paper) - N:M
-Teaching Staff (Staff_ID)__ | Paper (Paper_Code)__ | Year | Semester 
+Teaching Staff (Staff_ID)__ | Paper (Paper_Code)__ | Semester 
 
 OFFERED_AT (Paper, Campus) - N:M
 Paper_Code__ | Campus_Name__
 
 TAKES (Student, Paper) - N:M
-Student_ID__ | Paper (Paper_Code)__ | Year | Semester
+Student_ID__ | Paper (Paper_Code)__ | Semester__
 
 ---
 
@@ -104,12 +107,10 @@ Normalization
  - 1NF - All attributes are atomic
 		 - Paper>Semesters was multivalued and needed to be split
 		 - PK = {Paper_Code, Semester}
-		 - Each Year-Semester pair needs new tuple rather than separate relation, as they both together depend on Student-Paper, not to each other
 		 
  - 2NF - Non-key attribute is dependent on primary key
 		 - Not many non-keys, but they all depend on the key
-		 - Except for Semester 
-		 - Student-Paper-Semester - Meaningless with only two
+		 - Except for Semester -> Split to separate table
  
  - 3NF - Non-key attribute is non-transitively dependent on primary key
 		 - No transitive relation - Marks depend on paper student
@@ -173,7 +174,6 @@ CREATE TABLE takes (
 	student_id			CHAR(8)			NOT NULL		REFERENCES student(student_id),
 	/* replace with proper format later */
 	paper_code 			CHAR(7)			NOT NULL		REFERENCES paper(paper_code),
-	year				DATE			NOT NULL,		/* Is this a waste of space? */
 	semester			CHAR(2)			NOT NULL,
 	CONSTRAINT chk_semester CHECK (	semester='s1' OR
 									semester='s2' OR
