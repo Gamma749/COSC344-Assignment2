@@ -92,3 +92,36 @@ INSERT INTO paper_lectured_in_room VALUES ("COSC344", 111, "Union Street", "Dune
 INSERT INTO paper_lectured_in_room VALUES ("COSC244", 95, "Albany Street", "Dunedin North", 1);
 INSERT INTO paper_lectured_in_room VALUES ("MICN 401", 2, "Riccarton Avenue", "Christchurch Central", 1);
 INSERT INTO paper_lectured_in_room VALUES ("MICN 501", 23, "Mein Street", "Wellington", 1);
+
+DROP TABLE department;
+CREATE TABLE department
+(dname VARCHAR2(25) PRIMARY KEY,
+ number_of_academic_staff INT NOT NULL,
+ number_of_nonacademic_staff INT);
+ 
+INSERT INTO department VALUES ('Computer Science', 20, 1);
+INSERT INTO department VALUES ('English', 11, 1);
+INSERT INTO department VALUES ('Zoology', 31, 4);
+INSERT INTO department VALUES ('Botany', 12, 5);
+INSERT INTO department VALUES ('Theology', 11, 1);
+
+DROP TABLE course;
+CREATE TABLE course
+(cname VARCHAR2(25) PRIMARY KEY,
+ years_required INT NOT NULL,
+ clevel VARCHAR2(25) NOT NULL);
+ 
+INSERT INTO course VALUES('Bachelor of Arts', 3, 'Undergraduate');
+INSERT INTO course VALUES('Bachelor of Science', 3, 'Undergraduate');
+INSERT INTO course VALUES('Diploma in Language', 3, 'Undergraduate');
+INSERT INTO course VALUES('Doctor of Philosophy', 3, 'Postgraduate');
+INSERT INTO course VALUES('Master of Finance', 1, 'Postgraduate');
+
+ 
+ 
+ 
+ 
+
+
+
+
