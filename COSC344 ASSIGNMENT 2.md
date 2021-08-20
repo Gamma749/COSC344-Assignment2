@@ -199,6 +199,24 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  | <u>Room Number</u>| Seating | Accessibility | Projector |
 | ----------- | ----------- | ----------- | ----------- | ----------- |----------- | ----------- |
 
+### Department
+
+| <u>Name</u> | Number_Of_Academic_Staff | Number_Of_Nonacademic_Staff |
+| ----------- | ------------------------ | --------------------------- |
+
+### Course 
+
+| <u>Name</u> | Years_Required | Level |
+| ----------- | -------------- | ------------- |
+
+##### Paper
+| <u>Paper_Code</u> | Semester | Points | Department_Name<br>(REFERENCES Department) |
+| ----------------- | -------- | ------ | ------------------------------------------ |
+
+##### Student
+| <u>Student_ID</u> | Name | Phone | Address | Enrollment_Date | Graduate_Date | Graduated_Bool | Course_One<br>(REFERENCES Course) | Course_Two<br>(REFERENCES Course |
+| ----------------- | ---- | ----- | ------- | --------------- | ------------- | -------------- | ----------------------------------| ---------------------------------| 
+
 ### Dept_Based_In_Building
 | <u>Dept_Name</u><br>(REFERENCES Department) | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  |
 | ----------- | ----------- | ----------- | ----------- |
@@ -206,6 +224,18 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ### Paper_Lectured_In_Room
 | <u>Paper_Code</u><br>(REFERENCES Paper) | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  | <u> Room Number</u> |
 | ----------- | ----------- | ----------- | ----------- |----------- |
+
+##### Department_Offers_Major_For_Course
+| <u>Department_Name</u><br>(REFERENCES Department) | <u>Course_Name</u><br>(REFERENCES Course) |
+| ------------------------------------------------- | ----------------------------------------- |
+
+##### Paper_Counts_Toward_Course
+| <u>Paper_Code</u><br>(REFERENCES Paper) | <u>Course_Name</u><br>(REFERENCES Course) |
+| --------------------------------------- | ----------------------------------------- |
+
+##### Staff_Member_Works_For_Department
+| <u>Staff_Member_Id</u><br>(REFERENCES Staff) | <u>Department_Name</u><br>(REFERENCES Department) |
+| -------------------------------------------- | ------------------------------------------------- |
 
 # Normalization
 
