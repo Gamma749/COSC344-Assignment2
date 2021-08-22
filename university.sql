@@ -93,6 +93,7 @@ INSERT INTO paper_lectured_in_room VALUES ("COSC244", 95, "Albany Street", "Dune
 INSERT INTO paper_lectured_in_room VALUES ("MICN 401", 2, "Riccarton Avenue", "Christchurch Central", 1);
 INSERT INTO paper_lectured_in_room VALUES ("MICN 501", 23, "Mein Street", "Wellington", 1);
 
+
 DROP TABLE department cascade constraints;
 CREATE TABLE department
 (dname VARCHAR2(25) PRIMARY KEY,
@@ -185,4 +186,3 @@ INSERT INTO department_offers_major_for_course VALUES('Computer Science', 'Bache
 INSERT INTO department_offers_major_for_course VALUES('English', 'Diploma in Language');
 INSERT INTO department_offers_major_for_course VALUES('Botany', 'Doctor of Philosophy');
 INSERT INTO department_offers_major_for_course VALUES('Zoology', 'Doctor of Philosophy');
-
