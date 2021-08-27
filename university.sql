@@ -128,12 +128,7 @@ CREATE TABLE campus (
 CREATE TABLE teaches (
 	teaching_id		CHAR(8)		NOT NULL	REFERENCES staff(staff_ID),		
 	paper_code		CHAR(7)		NOT NULL	REFERENCES paper(paper_code),
-	semester		CHAR(2)		NOT NULL	REFERENCES paper_semesters(semester),
-	CONSTRAINT chk_semester CHECK (	semester='s1' OR
-									semester='s2' OR
-									semester='ss' OR
-									semester='fy'),
-	PRIMARY KEY(teaching_id, paper_code, semester));
+	PRIMARY KEY(teaching_id, paper_code));
 
 CREATE TABLE offered_at (
 	paper_code		CHAR(8)			NOT NULL	REFERENCES paper(paper_code),
@@ -144,13 +139,6 @@ CREATE TABLE takes (
 	student_id		CHAR(8)			NOT NULL	REFERENCES student(student_id),
 	/* replace with proper format later */
 	paper_code 		CHAR(7)			NOT NULL	REFERENCES paper(paper_code),
-	year_taken			DATE			NOT NULL,	/* Is this a waste of space? Date is huge but only year is used*/
-	semester		CHAR(2)			NOT NULL	REFERENCES paper_semesters(semester),
-	marks			INT,
-	CONSTRAINT chk_semester CHECK (	semester='s1' OR
-									semester='s2' OR
-									semester='ss' OR
-									semester='fy'),
-	PRIMARY KEY(student_id, paper_code, year_taken, semester));
+	PRIMARY KEY(student_id, paper_code));
 	
 /* Also, please add campus name to the student table. */
