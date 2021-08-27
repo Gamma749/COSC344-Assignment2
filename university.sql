@@ -1,10 +1,10 @@
 DROP TABLE postcode;
 CREATE TABLE postcode(
-    street_name VARCHAR2(50);
-    suburb VARCHAR2(50);
-    postcode INT;
+    street_name VARCHAR2(50),
+    suburb VARCHAR2(50),
+    postcode NUMBER,
 
-    CONSTRAINT pkey PRIMARY KEY(street_name, suburb);
+    CONSTRAINT pkey PRIMARY KEY(street_name, suburb)
 );
 
 INSERT INTO postcode VALUES ("Great King Street", "Dunedin North", 9016);
@@ -15,15 +15,15 @@ INSERT INTO postcode VALUES ("Mein Street", "Wellington", 6242);
 
 DROP TABLE building;
 CREATE TABLE building(
-    street_number INT;
-    street_name VARCHAR2(50);
-    suburb VARCHAR2(50);
+    street_number NUMBER,
+    street_name VARCHAR2(50),
+    suburb VARCHAR2(50),
     building_name VARCHAR2(50):
     campus_name VARCHAR2(50)
-        FOREIGN KEY(campus_name) REFERENCES campus(name);
+        FOREIGN KEY(campus_name) REFERENCES campus(name),
 
-    CONSTRAINT pkey PRIMARY KEY(street_number, street_name, suburb);
-    CONSTRAINT postcode_reference FOREIGN KEY(street_name, suburb) REFERENCES postcode(street_name, suburb);    
+    CONSTRAINT pkey PRIMARY KEY(street_number, street_name, suburb),
+    CONSTRAINT postcode_reference FOREIGN KEY(street_name, suburb) REFERENCES postcode(street_name, suburb) 
 );
 
 INSERT INTO building VALUES(111, "Union Street", "Dunedin North", "Owheo", "Dunedin");
@@ -35,16 +35,16 @@ INSERT INTO building VALUES(23, "Mein Street", "Wellington", "Wellington Hospita
 
 DROP TABLE room;
 CREATE TABLE room(
-    street_number INT;
-    street_name VARCHAR2(50);
-    suburb VARCHAR2(50);
-    room_number INT;
-    seating INT NOT NULL;
-    accessibility NUMBER(1) NOT NULL;
-    projector NUMBER(1) NOT NULL;
+    street_number NUMBER,
+    street_name VARCHAR2(50),
+    suburb VARCHAR2(50),
+    room_number NUMBER,
+    seating NUMBER NOT NULL,
+    accessibility NUMBER(1) NOT NULL,
+    projector NUMBER(1) NOT NULL,
 
-    CONSTRAINT pkey PRIMARY KEY(street_number, street_name, suburb, room_number);
-    CONSTRAINT building_reference FOREIGN KEY (street_number, street_name, suburb) REFERENCES building(street_number, street_name, suburb);
+    CONSTRAINT pkey PRIMARY KEY(street_number, street_name, suburb, room_number),
+    CONSTRAINT building_reference FOREIGN KEY (street_number, street_name, suburb) REFERENCES building(street_number, street_name, suburb)
 );
 
 INSERT INTO room VALUES(111, "Union Street", "Dunedin North", 1, 24, 1, 0);
@@ -60,14 +60,14 @@ INSERT INTO room VALUES(23, "Mein Street", "Wellington", 1, 25, 1, 1);
 
 DROP TABLE dept_based_in_building;
 CREATE TABLE dept_based_in_building(
-    department_name VARCHAR2(50);
-    street_number INT;
-    street_name VARCHAR2(50);
-    suburb VARCHAR2(50);
+    department_name VARCHAR2(50),
+    street_number NUMBER,
+    street_name VARCHAR2(50),
+    suburb VARCHAR2(50),
 
-    CONSTRAINT pkey PRIMARY KEY(department_name, street_number, street_name, suburb);
-    CONSTRAINT building_reference FOREIGN KEY (street_number, street_name, suburb) REFERENCES building(street_number, street_name, suburb);
-    CONSTRAINT department_reference FOREIGN KEY (department_name) REFERENCES department(department_name);
+    CONSTRAINT pkey PRIMARY KEY(department_name, street_number, street_name, suburb),
+    CONSTRAINT building_reference FOREIGN KEY (street_number, street_name, suburb) REFERENCES building(street_number, street_name, suburb),
+    CONSTRAINT department_reference FOREIGN KEY (department_name) REFERENCES department(department_name)
 );
 
 INSERT INTO dept_based_in_building VALUES ("Computer Science", 111, "Union Street", "Dunedin North");
@@ -77,15 +77,15 @@ INSERT INTO dept_based_in_building VALUES ("Health Science", 23, "Mein Street", 
 
 DROP TABLE paper_lectured_in_room;
 CREATE TABLE paper_lectured_in_room(
-    paper_code VARCHAR2(7);
-    street_number INT;
-    street_name VARCHAR2(50);
-    suburb VARCHAR2(50);
-    room_number INT;
+    paper_code VARCHAR2(7),
+    street_number NUMBER,
+    street_name VARCHAR2(50),
+    suburb VARCHAR2(50),
+    room_number NUMBER,
 
-    CONSTRAINT pkey PRIMARY KEY(paper_code, street_number, street_name, suburb, room_number);
-    CONSTRAINT room_reference FOREIGN KEY (street_number, street_name, suburb, room_number) REFERENCES building(street_number, street_name, suburb, room_number);
-    CONSTRAINT paper_reference FOREIGN KEY (paper_code) REFERENCES paper(paper_code);
+    CONSTRAINT pkey PRIMARY KEY(paper_code, street_number, street_name, suburb, room_number),
+    CONSTRAINT room_reference FOREIGN KEY (street_number, street_name, suburb, room_number) REFERENCES building(street_number, street_name, suburb, room_number),
+    CONSTRAINT paper_reference FOREIGN KEY (paper_code) REFERENCES paper(paper_code)
 );
 
 INSERT INTO paper_lectured_in_room VALUES ("COSC344", 111, "Union Street", "Dunedin North", 2);
@@ -94,6 +94,31 @@ INSERT INTO paper_lectured_in_room VALUES ("MICN 401", 2, "Riccarton Avenue", "C
 INSERT INTO paper_lectured_in_room VALUES ("MICN 501", 23, "Mein Street", "Wellington", 1);
 
 
+DROP TABLE department;
+CREATE TABLE department
+(dname VARCHAR2(25) PRIMARY KEY,
+ number_of_academic_staff INT NOT NULL,
+ number_of_nonacademic_staff INT);
+ 
+INSERT INTO department VALUES ('Computer Science', 20, 1);
+INSERT INTO department VALUES ('English', 11, 1);
+INSERT INTO department VALUES ('Zoology', 31, 4);
+INSERT INTO department VALUES ('Botany', 12, 5);
+INSERT INTO department VALUES ('Theology', 11, 1);
+
+DROP TABLE course;
+CREATE TABLE course
+(cname VARCHAR2(25) PRIMARY KEY,
+ years_required INT NOT NULL,
+ clevel VARCHAR2(25) NOT NULL);
+ 
+INSERT INTO course VALUES('Bachelor of Arts', 3, 'Undergraduate');
+INSERT INTO course VALUES('Bachelor of Science', 3, 'Undergraduate');
+INSERT INTO course VALUES('Diploma in Language', 3, 'Undergraduate');
+INSERT INTO course VALUES('Doctor of Philosophy', 3, 'Postgraduate');
+INSERT INTO course VALUES('Master of Finance', 1, 'Postgraduate');
+
+ 
 
 
 /* Paper and Campus */
@@ -142,3 +167,4 @@ CREATE TABLE takes (
 	PRIMARY KEY(student_id, paper_code));
 	
 /* Also, please add campus name to the student table. */
+
