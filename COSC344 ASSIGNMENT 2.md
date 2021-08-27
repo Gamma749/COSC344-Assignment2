@@ -113,6 +113,13 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ---
 ## Step 4: Mapping of Binary 1:N Relationships
 
+##### Offers (Department 1:N Paper)
+- Add as foreign key to Paper the primary key of Department
+
+##### Paper
+| <u>Paper_Code</u> | Semester | Points | Department_Name<br>(REFERENCES Department) |
+| ----------------- | -------- | ------ | ------------------------------------------ | 
+
 
 ##### LOCATED_ON (Building N:1 Campus)
 - Add as foreign key to Building the primary key of Campus
@@ -124,6 +131,17 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ##### LOCATED_IN (Room N:1 Building)
 - Add as foreign key to Room the primary key of Campus
 - Already done in step 2 (weak entity mapping)
+
+---
+## Step 4.5: Mapping of Binary 2:N Relationships
+
+##### Enrolled_In (Student 2:N Course)
+- Add as a foreign key to Student the primary key of the first Course
+- Add as a foreign key to Student the primary key of the second Course
+
+##### Student
+| <u>Student_ID</u> | Name | Phone | Address | Enrollment_Date | Graduate_Date | Graduated_Bool | Course_One<br>(REFERENCES Course) | Course_Two<br>(REFERENCES Course |
+| ----------------- | ---- | ----- | ------- | --------------- | ------------- | -------------- | ----------------------------------| ---------------------------------| 
 
 ---
 ## Step 5: Mapping of Binary M:N Relationships
@@ -141,6 +159,27 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ##### Paper_Lectured_In_Room
 | <u>Paper_Code</u><br>(REFERENCES Paper) | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  | <u> Room Number</u> |
 | ----------- | ----------- | ----------- | ----------- |----------- |
+
+##### Works_For(Staff M:N Department)
+- Create new Relation with primary key of each related entity
+
+##### Staff_Member_Works_For_Department
+| <u>Staff_Member_Id</u><br>(REFERENCES Staff) | <u>Department_Name</u><br>(REFERENCES Department) |
+| -------------------------------------------- | ------------------------------------------------- |
+
+##### Counts_Toward(Paper M:N Course)
+- Create new Relation with primary key of each related entity
+
+##### Paper_Counts_Toward_Course
+| <u>Paper_Code</u><br>(REFERENCES Paper) | <u>Course_Name</u><br>(REFERENCES Course) |
+| --------------------------------------- | ----------------------------------------- |
+
+##### Possible_Major_For(Department M:N Course)
+- Create new Relation with primary key of each related entity 
+
+##### Department_Offers_Major_For_Course
+| <u>Department_Name</u><br>(REFERENCES Department) | <u>Course_Name</u><br>(REFERENCES Course) |
+| ------------------------------------------------- | ----------------------------------------- |
 
 ---
 ## Step 6: Mapping of Multi-valued attributes
@@ -160,6 +199,24 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  | <u>Room Number</u>| Seating | Accessibility | Projector |
 | ----------- | ----------- | ----------- | ----------- | ----------- |----------- | ----------- |
 
+### Department
+
+| <u>Name</u> | Number_Of_Academic_Staff | Number_Of_Nonacademic_Staff |
+| ----------- | ------------------------ | --------------------------- |
+
+### Course 
+
+| <u>Name</u> | Years_Required | Level |
+| ----------- | -------------- | ------------- |
+
+##### Paper
+| <u>Paper_Code</u> | Semester | Points | Department_Name<br>(REFERENCES Department) |
+| ----------------- | -------- | ------ | ------------------------------------------ |
+
+##### Student
+| <u>Student_ID</u> | Name | Phone | Address | Enrollment_Date | Graduate_Date | Graduated_Bool | Course_One<br>(REFERENCES Course) | Course_Two<br>(REFERENCES Course |
+| ----------------- | ---- | ----- | ------- | --------------- | ------------- | -------------- | ----------------------------------| ---------------------------------| 
+
 ### Dept_Based_In_Building
 | <u>Dept_Name</u><br>(REFERENCES Department) | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  |
 | ----------- | ----------- | ----------- | ----------- |
@@ -167,6 +224,18 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ### Paper_Lectured_In_Room
 | <u>Paper_Code</u><br>(REFERENCES Paper) | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  | <u> Room Number</u> |
 | ----------- | ----------- | ----------- | ----------- |----------- |
+
+##### Department_Offers_Major_For_Course
+| <u>Department_Name</u><br>(REFERENCES Department) | <u>Course_Name</u><br>(REFERENCES Course) |
+| ------------------------------------------------- | ----------------------------------------- |
+
+##### Paper_Counts_Toward_Course
+| <u>Paper_Code</u><br>(REFERENCES Paper) | <u>Course_Name</u><br>(REFERENCES Course) |
+| --------------------------------------- | ----------------------------------------- |
+
+##### Staff_Member_Works_For_Department
+| <u>Staff_Member_Id</u><br>(REFERENCES Staff) | <u>Department_Name</u><br>(REFERENCES Department) |
+| -------------------------------------------- | ------------------------------------------------- |
 
 # Normalization
 
@@ -215,6 +284,16 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 | <u>Street_Name</u> | <u>Suburb</u> | Postcode |
 | ----------- | ----------- | ----------- |
 
+### Department
+
+| <u>Name</u> | Number_Of_Academic_Staff | Number_Of_Nonacademic_Staff |
+| ----------- | ------------------------ | --------------------------- |
+
+### Course 
+
+| <u>Name</u> | Years_Required | Level |
+| ----------- | -------------- | ------------- |
+
 ### Dept_Based_In_Building
 | <u>Dept_Name</u><br>(REFERENCES Department) | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  |
 | ----------- | ----------- | ----------- | ----------- |
@@ -222,5 +301,19 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 ### Paper_Lectured_In_Room
 | <u>Paper_Code</u><br>(REFERENCES Paper) | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  | <u> Room Number</u> |
 | ----------- | ----------- | ----------- | ----------- |----------- |
+
+### Staff_Member_Works_For_Department
+| <u>Staff_Member_Id</u><br>(REFERENCES Staff) | <u>Department_Name</u><br>(REFERENCES Department) |
+| -------------------------------------------- | ------------------------------------------------- |
+
+### Paper_Counts_Toward_Course
+| <u>Paper_Code</u><br>(REFERENCES Paper) | <u>Course_Name</u><br>(REFERENCES Course) |
+| --------------------------------------- | ----------------------------------------- |
+
+
+### Department_Offers_Major_For_Course
+| <u>Department_Name</u><br>(REFERENCES Department) | <u>Course_Name</u><br>(REFERENCES Course) |
+| ------------------------------------------------- | ----------------------------------------- |
+
 
 
