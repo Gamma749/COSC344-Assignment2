@@ -170,6 +170,52 @@ INSERT INTO paper_counts_toward_course VALUES(3, 'Diploma in Language');
 INSERT INTO paper_counts_toward_course VALUES(4, 'Doctor of Philosophy');
 INSERT INTO paper_counts_toward_course VALUES(5, 'Master of Finance');
 
+/* Paper and Campus */
+DROP TABLE paper;
+DROP TABLE paper_semesters;
+DROP TABLE campus;
+
+DROP TABLE teaches;
+DROP TABLE offered_at;
+DROP TABLE takes;
+
+CREATE TABLE paper (
+	paper_code	CHAR(7)		NOT NULL	PRIMARY KEY,
+	credits		INT			NOT NULL);
+	
+CREATE TABLE paper_semesters (
+	paper_code	CHAR(7)		NOT NULL	PRIMARY KEY,
+	semester	CHAR(2)					PRIMARY KEY,
+	CONSTRAINT chk_semester CHECK (	semester='s1' OR
+									semester='s2' OR
+									semester='ss' OR
+									semester='fy'));
+
+CREATE TABLE campus (
+	name				VARCHAR(80)		NOT NULL	PRIMARY KEY,
+	main_office_addr	VARCHAR(255)	NOT NULL,
+	phone				VARCHAR(20),
+	email				VARCHAR(40),
+	dean_id				CHAR(8)			REFERENCES staff(staff_ID)
+	/*Replace with actual format*/);
+	
+CREATE TABLE teaches (
+	teaching_id		CHAR(8)		NOT NULL	REFERENCES staff(staff_ID),		
+	paper_code		CHAR(7)		NOT NULL	REFERENCES paper(paper_code),
+	PRIMARY KEY(teaching_id, paper_code));
+
+CREATE TABLE offered_at (
+	paper_code		CHAR(8)			NOT NULL	REFERENCES paper(paper_code),
+	campus_name		VARCHAR(80)		NOT NULL	REFERENCES campus(name),
+	PRIMARY KEY(paper_code, campus_name));
+	
+CREATE TABLE takes (
+	student_id		CHAR(8)			NOT NULL	REFERENCES student(student_id),
+	/* replace with proper format later */
+	paper_code 		CHAR(7)			NOT NULL	REFERENCES paper(paper_code),
+	PRIMARY KEY(student_id, paper_code));
+	
+/* Also, please add campus name to the student table. */
 DROP TABLE department_offers_major_for_course;
 
 CREATE TABLE department_offers_major_for_course(

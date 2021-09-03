@@ -98,6 +98,14 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | <u>Name</u> | Years_Required | Undergraduate | Postgraduate |
 | ----------- | -------------- | ------------- | ------------ |
 
+##### Paper
+| <u>Paper_code</u> | Semester (Multi-value) | Points |
+| ----------------- | ---------------------- |------- |
+
+##### Campus
+| <u>Name</u> | Main_Office_Address | Phone | Email |
+| ----------- | ------------------- | ----- | ----- |
+
 ---
 ## Step 2: Mapping Weak Entity Types
 
@@ -109,6 +117,11 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 
 ---
 ## Step 3: Mapping of binary 1:1 Relationships
+
+##### DEAN_OF (Campus 1:1 Staff)
+| <u>Name</u> | Main_Office_Address | Phone | Email | Dean (Staff ID Reference) (NEW) |
+| ----------- | ------------------- | ----- | ----- | ------------------------------- |
+- Added Staff ID to campus, as campus has total participation
 
 ---
 ## Step 4: Mapping of Binary 1:N Relationships
@@ -131,6 +144,9 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ##### LOCATED_IN (Room N:1 Building)
 - Add as foreign key to Room the primary key of Campus
 - Already done in step 2 (weak entity mapping)
+
+##### STUDENT AT (Student N:1 Campus)
+- Add foreign key of campus to each student
 
 ---
 ## Step 4.5: Mapping of Binary 2:N Relationships
@@ -181,8 +197,30 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | <u>Department_Name</u><br>(REFERENCES Department) | <u>Course_Name</u><br>(REFERENCES Course) |
 | ------------------------------------------------- | ----------------------------------------- |
 
+##### Teaches (Staff N:M Paper)
+| <u>Teaching staff (Staff ID)</u> | <u>Paper (Paper_code)</u> |
+| -------------------------------- | ------------------------- |
+
+##### Offered_At (Paper N:M Campus)
+| <u>Paper (Paper_Code)</u> | <u>Campus Name</u> |
+| ------------------------- | ------------------ |
+
+##### Takes (Student N:M Paper)
+| <u>Student_ID</u> | <u>Paper_code</u> |
+| ----------------- | ----------------- |
+
 ---
 ## Step 6: Mapping of Multi-valued attributes
+
+##### Paper_Semesters
+| <u>Paper_code</u> | Semester |
+| ----------------- | -------- |
+
+##### Paper
+| <u>Paper_code</u> | Points |
+| ----------------- | ------ |
+
+- [ Paper | Semesters | Points ] split into [ Paper | Semester ] and [ Paper | Points ] 
 
 ---
 ## Step 7: Mapping of N-ary Relationship types

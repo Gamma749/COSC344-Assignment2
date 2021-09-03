@@ -1,0 +1,178 @@
+====
+ENTITIES
+====
+
+Paper
+Attribute 			Simplicity 		Num-Values 		Data Type
+
+Paper_Code 			Simple 			Single-valued 	String (Key Attribute)
+Semester 			Simple 			Multi-valued 	String (Enumerated)
+Points 				Simple 			Single-valued 	Int
+
+---
+
+Campus
+Attribute 			Simplicity 		Num-Values 		Data Type
+
+Name 				Single-valued 	Single-valued 	String (Key Attribute)
+Main_Office_Address Single-valued 	Single-valued 	String
+Phone 				Simple 			Single-valued 	String (Candidate Key)
+Email 				Simple 			Single-valued 	String (Candidate Key)
+
+
+
+
+===
+RELATIONS
+===
+
+TEACHES (Staff, Paper) - N:M
+OFFERED_AT (Paper, Campus) - N:M
+TAKES (Student, Paper) - N:M
+
+DEAN_OF (Staff, Campus) - 1:1
+STUDENT_AT (Student, Campus) - 1:N
+
+
+
+====
+STEPS
+====
+
+ 1. Map regular entities 				- Paper, Campus
+		- Underline keys
+			- Paper - Code - Semester, Points
+			- Campus - Name, (Phone, Email) - Address 
+			
+ 2. Map weak entities 					- None
+ 
+ 3. Map binary 1:1 relationships		- DEAN_OF
+		- Foreign Key
+			- R = DEAN_OF
+			- S = Campus - Include Key of T (Staff) for total participation
+			
+ 4. Map binary 1:N relationships		- STUDENT_AT
+		- S = Student - the N-side
+		- Include primary key of T (Campus) as the N side
+		
+ 5. Map binary M:N relationships		- TEACHES, OFFERED_AT, TAKES
+		- For each binary M:N relation, create new relation S
+		- Add foreign keys of all other entities
+ 
+ 6. Map Multivalue attributes			- Paper>Semester
+		- For each attribute, create relation R
+		- R includes attribute corresponding to A + Primary key of relation that uses A as attribute
+		- Primary key = R = A (attribute value) + K (primary key of relation)
+		- 1 Paper : N Semesters
+		- Semesters(Paper Code, Semester)
+
+ 7. Map N-ary relationships
+		- Initially none, but table 'takes' requires extra keys, year and semester in case the student takes the same paper multiple times. 
+
+
+===
+Relational Data
+===
+ 
+Paper
+Paper_Code__ | Semester (Mult-Val) | Credits
+-> | 1NF
+Paper_Code__ | Semester (sing-val) | Credits
+-> | 2NF
+Paper_Code__ | Credits
+Paper_Code__ | Semester (Enum) 					-Splitting reduces redundancy? (Credits not duplicated.)
+
+Campus
+_Name__ | Main Office Address | Phone | Email | Dean (Staff_ID)
+
+TEACHES (Staff, Paper) - N:M
+Teaching Staff (Staff_ID)__ | Paper (Paper_Code)__ | Semester 
+
+OFFERED_AT (Paper, Campus) - N:M
+Paper_Code__ | Campus_Name__
+
+TAKES (Student, Paper) - N:M
+Student_ID__ | Paper (Paper_Code)__ | Semester__
+
+---
+
+Student
+Campus (Name of Campus)
+
+
+
+===
+Normalization
+===
+ - 1NF - All attributes are atomic
+		 - Paper>Semesters was multivalued and needed to be split
+		 - PK = {Paper_Code, Semester}
+		 
+ - 2NF - Non-key attribute is dependent on primary key
+		 - Not many non-keys, but they all depend on the key
+		 - Except for Semester -> Split to separate table
+ 
+ - 3NF - Non-key attribute is non-transitively dependent on primary key
+		 - No transitive relation - Marks depend on paper student
+		 - All info directly relevent
+ 
+ - BCNF - LHS of FD is candidate key
+ 		 - Each key of each table is unique - Can only be one except for TEACHES and TAKES (Where teaching and taking can take in multiple semesters) (redundant)
+
+*Superkey = Unique identified
+
+
+
+===
+Load.sql
+===
+
+DROP TABLE paper_credits;
+DROP TABLE paper_semesters;
+DROP TABLE campus;
+
+DROP TABLE teaches;
+DROP TABLE offered_at;
+DROP TABLE takes;
+
+CREATE TABLE paper_credits (
+	paper_code			CHAR(7)			NOT NULL		PRIMARY KEY,
+	credits				INT				NOT NULL);
+	
+CREATE TABLE paper_semesters (
+	paper_code			CHAR(7)			NOT NULL		PRIMARY KEY,
+	semester			CHAR(2),
+	CONSTRAINT chk_semester CHECK (		semester='s1' OR
+										semester='s2' OR
+										semester='ss' OR
+										semester='fy'));
+
+CREATE TABLE campus (
+	name				VARCHAR(80)		NOT NULL		PRIMARY KEY,
+	main_office_addr	VARCHAR(255)	NOT NULL,
+	phone				VARCHAR(20),
+	email				VARCHAR(40),
+	dean_id				CHAR(8)			REFERENCES staff(staff_ID)
+	/*TODO: Replace with actual format*/);
+	
+CREATE TABLE teaches (
+	teaching_id			CHAR(8)			NOT NULL		REFERENCES staff(staff_ID),		
+	paper_code			CHAR(7)			NOT NULL		REFERENCES paper(paper_code),
+	PRIMARY KEY(teaching_id, paper_code));
+
+CREATE TABLE offered_at (
+	paper_code			CHAR(8)			NOT NULL		REFERENCES paper(paper_code),
+	campus_name			VARCHAR(80)		NOT NULL		REFERENCES campus(name),
+	PRIMARY KEY(paper_code, campus_name));
+	
+CREATE TABLE takes (
+	student_id			CHAR(8)			NOT NULL		REFERENCES student(student_id),
+	/* replace with proper format later */
+	paper_code 			CHAR(7)			NOT NULL		REFERENCES paper(paper_code),
+	PRIMARY KEY(student_id, paper_code));
+	
+/* TODO: Also, please add campus name to the student table. */
+	
+	
+	
+	
