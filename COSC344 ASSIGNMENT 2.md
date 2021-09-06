@@ -121,7 +121,7 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ##### DEAN_OF (Campus 1:1 Staff)
 | <u>Name</u> | Main_Office_Address | Phone | Email | Dean (Staff ID Reference) (NEW) |
 | ----------- | ------------------- | ----- | ----- | ------------------------------- |
-- Added Staff ID to campus, as campus has total participation
+- The staffID is added to the campus table to represent a DEAD_OF relationship, as campus has total participation. 
 
 ---
 ## Step 4: Mapping of Binary 1:N Relationships
@@ -132,7 +132,7 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ##### Paper
 | <u>Paper_Code</u> | Semester | Points | Department_Name<br>(REFERENCES Department) |
 | ----------------- | -------- | ------ | ------------------------------------------ | 
-
+- The department name is added to the paper table to represent any number of papers belonging to a single department. 
 
 ##### LOCATED_ON (Building N:1 Campus)
 - Add as foreign key to Building the primary key of Campus
@@ -146,7 +146,7 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 - Already done in step 2 (weak entity mapping)
 
 ##### STUDENT AT (Student N:1 Campus)
-- Add foreign key of campus to each student
+- A foreign key referencing a campus is added to the student table to represent the campus they are studying at. 
 
 ---
 ## Step 4.5: Mapping of Binary 2:N Relationships
@@ -200,14 +200,17 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ##### Teaches (Staff N:M Paper)
 | <u>Teaching staff (Staff ID)</u> | <u>Paper (Paper_code)</u> |
 | -------------------------------- | ------------------------- |
+- Relationship refers to the keys of both staff and paper. 
 
 ##### Offered_At (Paper N:M Campus)
 | <u>Paper (Paper_Code)</u> | <u>Campus Name</u> |
 | ------------------------- | ------------------ |
+- Relationship refers to both paper and campus. 
 
 ##### Takes (Student N:M Paper)
 | <u>Student_ID</u> | <u>Paper_code</u> |
 | ----------------- | ----------------- |
+- Relationship refers to student and paper. 
 
 ---
 ## Step 6: Mapping of Multi-valued attributes
@@ -219,8 +222,7 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ##### Paper
 | <u>Paper_code</u> | Points |
 | ----------------- | ------ |
-
-- [ Paper | Semesters | Points ] split into [ Paper | Semester ] and [ Paper | Points ] 
+- Semesters was previously a multi-valued attribute of paper, as a paper could be taught in multiple semesters. The table was split so one represents a paper and all the semesters it is taught in, and another refers to the paper code and the points associated with it. 
 
 ---
 ## Step 7: Mapping of N-ary Relationship types
@@ -280,6 +282,7 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ## 1NF
 Definition: All values are atomic
 - This is true from the mapping process from ERD to Relational Model
+- The multi-value attribute of papers, semesters, is already converted to be atomic. 
 
 ---
 ## 2NF
