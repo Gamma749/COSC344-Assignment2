@@ -182,6 +182,11 @@ DROP TABLE takes;
 CREATE TABLE paper (
 	paper_code	CHAR(7)		NOT NULL	PRIMARY KEY,
 	credits		INT			NOT NULL);
+
+INSERT INTO paper VALUES ('COSC344', 18);
+INSERT INTO paper VALUES ('COSC244', 18);
+INSERT INTO paper VALUES ('MICN401', 120);
+INSERT INTO paper VALUES ('MICN501', 120);
 	
 CREATE TABLE paper_semesters (
 	paper_code	CHAR(7)		NOT NULL	PRIMARY KEY,
@@ -191,14 +196,22 @@ CREATE TABLE paper_semesters (
 									semester='ss' OR
 									semester='fy'));
 
+INSERT INTO paper_semesters VALUES ('COSC344', 's2');
+INSERT INTO paper_semesters VALUES ('COSC244', 's2');
+INSERT INTO paper_semesters VALUES ('MICN401', 'fy');
+INSERT INTO paper_semesters VALUES ('MICN501', 'fy');
+
 CREATE TABLE campus (
-	name				VARCHAR(80)		NOT NULL	PRIMARY KEY,
-	main_office_addr	VARCHAR(255)	NOT NULL,
-	phone				VARCHAR(20),
-	email				VARCHAR(40),
+	name				VARCHAR2(80)		NOT NULL	PRIMARY KEY,
+	street_number       NUMBER,      
+    street_name         VARCHAR2(50),  
+    suburb              VARCHAR2(50),
+	phone				VARCHAR2(20),
+	email				VARCHAR2(40),
 	dean_id				CHAR(8)			REFERENCES staff(staff_ID)
 	/*Replace with actual format*/);
-	
+INSERT INTO campus VALUES ('Dunedin', 362, 'Leith Street', 'Dunedin Central', '0800 80 80 98', 'university@otago.ac.nz', 'ABCDEFGH');
+
 CREATE TABLE teaches (
 	teaching_id		CHAR(8)		NOT NULL	REFERENCES staff(staff_ID),		
 	paper_code		CHAR(7)		NOT NULL	REFERENCES paper(paper_code),
