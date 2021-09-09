@@ -286,12 +286,14 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 
 ### Staff
 - Suburb has been removed and replaced with a Suburb entty that stores street names and their correspondent suburbs.
+
 | <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Salary | IRD_Num | Campus | Supervises_Student (REFERENCES Student) | Department(REFERENCES Department)|
 | --------------- | ---- | ----- | ------------- | ----------- | ------ | ------- | ------ | ---------- | ----- |
 
 ### Student
 - Suburb has been removed and replaced with a Suburb entty that stores street names and their correspondent suburbs.
 - The Graduated boolean has been removed as it is possible for this to fall out of sync with the entity itself. It would make more sense to create Graduated from a query of whether the Graduation date isn't null, more than it would make sense to manually input whether a student has graduated.
+
 | <u>Student_ID</u> | Name | Phone | Street_Number | Street_Name | Enrollment | Graduation | Campus |
 | ----------------- | ---- | ----- | ------------- | ----------- | ---------- | ---------- | ------ |
 
