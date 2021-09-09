@@ -79,9 +79,6 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ---
 ## Step 1: Mapping Regular Entity Types
 
-##### Name
-| | | |
-
 ##### Building
 - Decompose composite attribute and add all simple attributes, add weak key to primary key
 
@@ -106,11 +103,13 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 
 ##### Student
 - Decompose composite attributes and add all simple attributes.
+
 | <u>Student_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Enrollment | Graduation | Graduated |
 | ----------------- | ---- | ----- | ------------- | ----------- | ------ | ---------- | ---------- | --------- |
 
 ##### Staff
 - Decompose composite attributes and add all simple attributes.
+
 | <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Salary | IRD_Num |
 | --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- |
 
