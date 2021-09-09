@@ -79,9 +79,6 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ---
 ## Step 1: Mapping Regular Entity Types
 
-##### Name
-| | | |
-
 ##### Building
 - Decompose composite attribute and add all simple attributes, add weak key to primary key
 
@@ -106,11 +103,13 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 
 ##### Student
 - Decompose composite attributes and add all simple attributes.
+
 | <u>Student_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Enrollment | Graduation | Graduated |
 | ----------------- | ---- | ----- | ------------- | ----------- | ------ | ---------- | ---------- | --------- |
 
 ##### Staff
 - Decompose composite attributes and add all simple attributes.
+
 | <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Salary | IRD_Num |
 | --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- |
 
@@ -175,7 +174,7 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 
 ##### Supervises (Staff M:1 Student)
 | <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Salary | IRD_Num | Campus | Supervises_Student (REFERENCES Student) | 
-| --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- | ------ | ---------- | ----------- |
+| --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- | ------ | ---------- |
 
 	
 ---
@@ -261,11 +260,12 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 
 ---
 # Mapped Relational Model 
-<!-- TODO: Make this a diagram -->
+
+![Relation Model image](relational_model.svg) 
 
 ### Building
 | <u>Street_Number</u> | <u>Street_Name</u> | <u>Suburb</u> | Postcode | Building_Name | Campus_Name<br>(REFERENCES Campus) |
-| ----------- | ----------- | ----------- | ----------- | ----------- |----------- |
+| ----------- | ----------- | ----------- | ----------- | ----------- |----------- | 
 
 ### Room
 | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  | <u>Room Number</u>| Seating | Accessibility | Projector |
@@ -287,18 +287,16 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 
 ### Staff
 - Suburb has been removed and replaced with a Suburb entty that stores street names and their correspondent suburbs.
+
 | <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Salary | IRD_Num | Campus | Supervises_Student (REFERENCES Student) | Department(REFERENCES Department)|
 | --------------- | ---- | ----- | ------------- | ----------- | ------ | ------- | ------ | ---------- | ----- |
 
 ### Student
 - Suburb has been removed and replaced with a Suburb entty that stores street names and their correspondent suburbs.
 - The Graduated boolean has been removed as it is possible for this to fall out of sync with the entity itself. It would make more sense to create Graduated from a query of whether the Graduation date isn't null, more than it would make sense to manually input whether a student has graduated.
+
 | <u>Student_ID</u> | Name | Phone | Street_Number | Street_Name | Enrollment | Graduation | Campus |
 | ----------------- | ---- | ----- | ------------- | ----------- | ---------- | ---------- | ------ |
-
-### Suburb
-| <u>Street_Name</u> | Suburb |
-| ------------------ | ------ |
 
 ### Dept_Based_In_Building
 | <u>Dept_Name</u><br>(REFERENCES Department) | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  |
@@ -354,7 +352,8 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 ---
 
 # Normalized Relational Model 
-<!-- TODO: Make this a diagram -->
+
+![Normalized Relation Model image](normalised_relational_model.svg) 
 
 ### Building
 | <u>Street_Number</u> | <u>Street_Name</u><br>(REFERENCES postcode) | <u>Suburb</u><br>(REFERENCES postcode) | Building_Name | Campus_Name<br>(REFERENCES Campus) |
