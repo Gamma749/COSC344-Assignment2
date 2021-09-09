@@ -156,6 +156,15 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | <u>Street_Number</u> | <u>Street_Name</u> | <u>Suburb</u> | Postcode | Building_Name | Campus_Name<br>(REFERENCES Campus) |
 | ----------- | ----------- | ----------- | ----------- | ----------- |----------- |
 
+
+##### OFFICE_OF (Room 1:N Staff)
+- Create a new table OFFICE_OF that includes the primary key of staff as primary and foreign key, and primary key of room as foreign key
+- This avoids many NULLs for staff with no office
+
+##### OFFICE_OF
+| <u>Staff_ID</u><br>(REFERENCES Staff) | Street_Number<br>(REFERENCES Building) | Street_Name<br>(REFERENCES Building)  | Suburb<br>(REFERENCES Building)  | Room Number|
+| --------------- | ---- | ----- | ------------- | ----------- |
+
 ##### LOCATED_IN (Room N:1 Building)
 - Add as foreign key to Room the primary key of Campus
 - Already done in step 2 (weak entity mapping)
@@ -318,6 +327,10 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | <u>Staff_Member_Id</u><br>(REFERENCES Staff) | <u>Department_Name</u><br>(REFERENCES Department) |
 | -------------------------------------------- | ------------------------------------------------- |
 
+##### OFFICE_OF
+| <u>Staff_ID</u><br>(REFERENCES Staff) | Street_Number<br>(REFERENCES Building) | Street_Name<br>(REFERENCES Building)  | Suburb<br>(REFERENCES Building)  | Room Number|
+| --------------- | ---- | ----- | ------------- | ----------- |
+
 # Normalization
 
 ## 1NF
@@ -397,6 +410,10 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 ### Department_Offers_Major_For_Course
 | <u>Department_Name</u><br>(REFERENCES Department) | <u>Course_Name</u><br>(REFERENCES Course) |
 | ------------------------------------------------- | ----------------------------------------- |
+
+##### OFFICE_OF
+| <u>Staff_ID</u><br>(REFERENCES Staff) | Street_Number<br>(REFERENCES Building) | Street_Name<br>(REFERENCES Building)  | Suburb<br>(REFERENCES Building)  | Room Number|
+| --------------- | ---- | ----- | ------------- | ----------- |
 
 
 
