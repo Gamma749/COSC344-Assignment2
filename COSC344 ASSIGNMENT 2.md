@@ -175,7 +175,7 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 
 ##### Supervises (Staff M:1 Student)
 | <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Salary | IRD_Num | Campus | Supervises_Student (REFERENCES Student) | 
-| --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- | ------ | ---------- | ----------- |
+| --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- | ------ | ---------- |
 
 	
 ---
