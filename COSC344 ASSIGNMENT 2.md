@@ -89,12 +89,10 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 
 ##### Department
-
 | <u>Name</u> | Number_Of_Academic_Staff | Number_Of_Nonacademic_Staff |
 | ----------- | ------------------------ | --------------------------- |
 
 ##### Course 
-
 | <u>Name</u> | Years_Required | Undergraduate | Postgraduate |
 | ----------- | -------------- | ------------- | ------------ |
 
@@ -105,6 +103,18 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ##### Campus
 | <u>Name</u> | Main_Office_Address | Phone | Email |
 | ----------- | ------------------- | ----- | ----- |
+
+##### Student
+- Decompose composite attributes and add all simple attributes.
+| <u>Student_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Enrollment | Graduation | Graduated |
+| ----------------- | ---- | ----- | ------------- | ----------- | ------ | ---------- | ---------- | --------- |
+
+##### Staff
+- Decompose composite attributes and add all simple attributes.
+| <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Salary | IRD_Num |
+| --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- |
+
+
 
 ---
 ## Step 2: Mapping Weak Entity Types
@@ -121,7 +131,13 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ##### DEAN_OF (Campus 1:1 Staff)
 | <u>Name</u> | Main_Office_Address | Phone | Email | Dean (Staff ID Reference) (NEW) |
 | ----------- | ------------------- | ----- | ----- | ------------------------------- |
-- The staffID is added to the campus table to represent a DEAD_OF relationship, as campus has total participation. 
+- The staffID is added to the campus table to represent a DEAN_OF relationship, as campus has total participation. 
+
+
+##### COORDINATES (Course 1:1 Staff) - 1:1
+| <u>Name</u> | Years_Required | Undergraduate | Postgraduate | Coordinator (REFERENCES Staff) |
+| ----------- | -------------- | ------------- | ------------ | ------------------------------ |
+- Staff_ID  is added to course as staff members have total participation in the COORDINATES relationship.
 
 ---
 ## Step 4: Mapping of Binary 1:N Relationships
@@ -145,19 +161,32 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 - Add as foreign key to Room the primary key of Campus
 - Already done in step 2 (weak entity mapping)
 
-##### STUDENT AT (Student N:1 Campus)
-- A foreign key referencing a campus is added to the student table to represent the campus they are studying at. 
+##### STUDENT_AT (Student N:1 Campus)
+- Reference for the campus a student is located at/in.
 
+| <u>Student_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Enrollment | Graduation | Graduated | Campus |
+| ----------------- | ---- | ----- | ------------- | ----------- | ------ | ---------- | ---------- | --------- | ------ |
+
+##### STAFF_AT (Student N:1 Campus)
+- Reference for the campus a staff member is located at/in.
+
+| <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Salary | IRD_Num | Campus |
+| --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- | ------ |
+
+##### Supervises (Staff M:1 Student)
+| <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Salary | IRD_Num | Campus | Supervises_Student (REFERENCES Student) | 
+| --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- | ------ | ---------- | ----------- |
+
+	
 ---
 ## Step 4.5: Mapping of Binary 2:N Relationships
 
 ##### Enrolled_In (Student 2:N Course)
-- Add as a foreign key to Student the primary key of the first Course
-- Add as a foreign key to Student the primary key of the second Course
+- Though originally Enrolled_In was going to be handled by data fields within the Student entity, we decided to model enrollment through a separate entity. This is below: 
 
-##### Student
-| <u>Student_ID</u> | Name | Phone | Address | Enrollment_Date | Graduate_Date | Graduated_Bool | Course_One<br>(REFERENCES Course) | Course_Two<br>(REFERENCES Course |
-| ----------------- | ---- | ----- | ------- | --------------- | ------------- | -------------- | ----------------------------------| ---------------------------------| 
+##### Enrolled
+| <u>Student_ID</u> | <u>Course</u> |
+| ----------------- | ------------- |
 
 ---
 ## Step 5: Mapping of Binary M:N Relationships
@@ -180,8 +209,11 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 - Create new Relation with primary key of each related entity
 
 ##### Staff_Member_Works_For_Department
-| <u>Staff_Member_Id</u><br>(REFERENCES Staff) | <u>Department_Name</u><br>(REFERENCES Department) |
-| -------------------------------------------- | ------------------------------------------------- |
+- Originally it was decided that staff members could work for multiple departments, but for realism and ease of use, we have since agreed staff members may only work for one department, and combination departments could be added where necessary. A cleaner would work for the cleaning department, rather than each department that they clean, for example. This is represented below:
+
+##### Staff
+| <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Salary | IRD_Num | Campus | Supervises_Student (REFERENCES Student) | Department(REFERENCES Department)|
+| --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- | ------ | ---------- | ----- |
 
 ##### Counts_Toward(Paper M:N Course)
 - Create new Relation with primary key of each related entity
@@ -249,13 +281,24 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | <u>Name</u> | Years_Required | Level |
 | ----------- | -------------- | ------------- |
 
-##### Paper
+### Paper
 | <u>Paper_Code</u> | Semester | Points | Department_Name<br>(REFERENCES Department) |
 | ----------------- | -------- | ------ | ------------------------------------------ |
 
-##### Student
-| <u>Student_ID</u> | Name | Phone | Address | Enrollment_Date | Graduate_Date | Graduated_Bool | Course_One<br>(REFERENCES Course) | Course_Two<br>(REFERENCES Course |
-| ----------------- | ---- | ----- | ------- | --------------- | ------------- | -------------- | ----------------------------------| ---------------------------------| 
+### Staff
+- Suburb has been removed and replaced with a Suburb entty that stores street names and their correspondent suburbs.
+| <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Salary | IRD_Num | Campus | Supervises_Student (REFERENCES Student) | Department(REFERENCES Department)|
+| --------------- | ---- | ----- | ------------- | ----------- | ------ | ------- | ------ | ---------- | ----- |
+
+### Student
+- Suburb has been removed and replaced with a Suburb entty that stores street names and their correspondent suburbs.
+- The Graduated boolean has been removed as it is possible for this to fall out of sync with the entity itself. It would make more sense to create Graduated from a query of whether the Graduation date isn't null, more than it would make sense to manually input whether a student has graduated.
+| <u>Student_ID</u> | Name | Phone | Street_Number | Street_Name | Enrollment | Graduation | Campus |
+| ----------------- | ---- | ----- | ------------- | ----------- | ---------- | ---------- | ------ |
+
+### Suburb
+| <u>Street_Name</u> | Suburb |
+| ------------------ | ------ |
 
 ### Dept_Based_In_Building
 | <u>Dept_Name</u><br>(REFERENCES Department) | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  |
