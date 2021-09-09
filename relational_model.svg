@@ -325,4 +325,47 @@
     <polygon style="fill: #000000" points="-393.31,845.5 -403.31,850.5 -400.81,845.5 -403.31,840.5 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-393.31,845.5 -403.31,850.5 -400.81,845.5 -403.31,840.5 "/>
   </g>
+  <g>
+    <rect style="fill: #ffffff" x="424.881" y="795.391" width="175.5" height="18"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="424.881" y="795.391" width="175.5" height="18"/>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="512.631" y="809.391">OFFICE_OF</text>
+    <rect style="fill: #ffffff" x="424.881" y="813.391" width="175.5" height="124"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="424.881" y="813.391" width="175.5" height="124"/>
+    <polygon style="fill: #000000" points="427.881,827.391 429.881,830.391 431.881,827.391 429.881,824.391 "/>
+    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="433.881" y="837.391">staff_id</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="433.881" y1="839.791" x2="593.381" y2="839.791"/>
+    <ellipse style="fill: #000000" cx="429.881" cy="851.391" rx="2" ry="2"/>
+    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="433.881" y="861.391">street_number</text>
+    <ellipse style="fill: #000000" cx="429.881" cy="875.391" rx="2" ry="2"/>
+    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="433.881" y="885.391">street_name</text>
+    <ellipse style="fill: #000000" cx="429.881" cy="899.391" rx="2" ry="2"/>
+    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="433.881" y="909.391">suburb</text>
+    <ellipse style="fill: #000000" cx="429.881" cy="923.391" rx="2" ry="2"/>
+    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="433.881" y="933.391">room_number</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-158.092,1091.53 -119.283,1091.53 -119.283,1162.75 314.813,1162.75 314.813,827.391 424.881,827.391 "/>
+    <polygon style="fill: #000000" points="-165.592,1091.53 -155.592,1086.53 -158.092,1091.53 -155.592,1096.53 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-165.592,1091.53 -155.592,1086.53 -158.092,1091.53 -155.592,1096.53 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="600.381,851.391 671.881,851.391 671.881,516 652.236,516 "/>
+    <polygon style="fill: #000000" points="644.736,516 654.736,511 652.236,516 654.736,521 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="644.736,516 654.736,511 652.236,516 654.736,521 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="600.381,875.391 688.74,875.391 688.74,540 652.236,540 "/>
+    <polygon style="fill: #000000" points="644.736,540 654.736,535 652.236,540 654.736,545 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="644.736,540 654.736,535 652.236,540 654.736,545 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="600.381,899.391 700.411,899.391 700.411,564 652.236,564 "/>
+    <polygon style="fill: #000000" points="644.736,564 654.736,559 652.236,564 654.736,569 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="644.736,564 654.736,559 652.236,564 654.736,569 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="600.381,923.391 710.786,923.391 710.786,588 652.236,588 "/>
+    <polygon style="fill: #000000" points="644.736,588 654.736,583 652.236,588 654.736,593 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="644.736,588 654.736,583 652.236,588 654.736,593 "/>
+  </g>
 </svg>
