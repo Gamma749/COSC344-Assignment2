@@ -260,11 +260,12 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 
 ---
 # Mapped Relational Model 
-<!-- TODO: Make this a diagram -->
+
+![Relation Model image](relational_model.svg) 
 
 ### Building
 | <u>Street_Number</u> | <u>Street_Name</u> | <u>Suburb</u> | Postcode | Building_Name | Campus_Name<br>(REFERENCES Campus) |
-| ----------- | ----------- | ----------- | ----------- | ----------- |----------- |
+| ----------- | ----------- | ----------- | ----------- | ----------- |----------- | 
 
 ### Room
 | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  | <u>Room Number</u>| Seating | Accessibility | Projector |
@@ -296,10 +297,6 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 
 | <u>Student_ID</u> | Name | Phone | Street_Number | Street_Name | Enrollment | Graduation | Campus |
 | ----------------- | ---- | ----- | ------------- | ----------- | ---------- | ---------- | ------ |
-
-### Suburb
-| <u>Street_Name</u> | Suburb |
-| ------------------ | ------ |
 
 ### Dept_Based_In_Building
 | <u>Dept_Name</u><br>(REFERENCES Department) | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  |
@@ -355,7 +352,8 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 ---
 
 # Normalized Relational Model 
-<!-- TODO: Make this a diagram -->
+
+![Normalized Relation Model image](normalised_relational_model.svg) 
 
 ### Building
 | <u>Street_Number</u> | <u>Street_Name</u><br>(REFERENCES postcode) | <u>Suburb</u><br>(REFERENCES postcode) | Building_Name | Campus_Name<br>(REFERENCES Campus) |
