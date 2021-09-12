@@ -98,8 +98,8 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | ----------------- | ---------------------- |------- |
 
 ### CAMPUS
-| <u>Name</u> | Main_Office_Address | Phone | Email |
-| ----------- | ------------------- | ----- | ----- |
+| <u>Name</u> | Street_Number | Street_Name | Suburb | Phone | Email |
+| ----------- | ------------------- | ----- | ----- | ----- | ----- |
 
 ### STUDENT
 - Decompose composite attributes and add all simple attributes.
@@ -303,8 +303,8 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | ----------- | ----------- | ----------- | ----------- |
 
 ### CAMPUS
-| <u>Name</u> | Main_Office_Address | Phone | Email | Dean (REFERENCES Staff) |
-| ----------- | ------------------- | ----- | ----- | ------------------------------- |
+| <u>Name</u> | Street_Number | Street_Name | Suburb | Phone | Email |
+| ----------- | ------------------- | ----- | ----- | ----- | ----- |
 
 ### COURSE
 | <u>Name</u> | Years_Required | Undergraduate | Postgraduate | Coordinator (REFERENCES Staff) |
