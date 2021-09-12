@@ -90,8 +90,8 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | ----------- | ------------------------ | --------------------------- |
 
 ### COURSE 
-| <u>Name</u> | Years_Required | Undergraduate | Postgraduate |
-| ----------- | -------------- | ------------- | ------------ |
+| <u>Name</u> | Years_Required | Postgradute_Bool | Coordinator_id (REFERENCES Staff) |
+| ----------- | -------------- | ---------------- | ------------------------------ |
 
 ### PAPER
 | <u>Paper_code</u> | Semester (Multi-value) | Points |
@@ -139,8 +139,8 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 - Staff_ID  is added to course as staff members have total participation in the COORDINATES relationship.
 
 ##### COURSE
-| <u>Name</u> | Years_Required | Undergraduate | Postgraduate | Coordinator (REFERENCES Staff) |
-| ----------- | -------------- | ------------- | ------------ | ------------------------------ |
+| <u>Name</u> | Years_Required | Postgradute_Bool | Coordinator_id (REFERENCES Staff) |
+| ----------- | -------------- | ---------------- | ------------------------------ |
 
 ---
 ## Step 4: Mapping of Binary 1:N Relationships
@@ -307,8 +307,8 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | ----------- | ------------------- | ----- | ----- | ----- | ----- |
 
 ### COURSE
-| <u>Name</u> | Years_Required | Undergraduate | Postgraduate | Coordinator (REFERENCES Staff) |
-| ----------- | -------------- | ------------- | ------------ | ------------------------------ |
+| <u>Name</u> | Years_Required | Postgradute_Bool | Coordinator_id (REFERENCES Staff) |
+| ----------- | -------------- | ---------------- | ------------------------------ |
 
 ### DEPARTMENT_OFFERS_MAJOR_FOR_COURSE
 | <u>Department_Name</u><br>(REFERENCES Department) | <u>Course_Name</u><br>(REFERENCES Course) |
