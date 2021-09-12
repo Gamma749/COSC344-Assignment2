@@ -399,7 +399,7 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 
 ![Normalized Relation Model image](normalised_relational_model.svg) 
 
-##### POSTCODE
+### POSTCODE
 | <u>Street_Name</u> | <u>Suburb</u> | Postcode |
 | ----------- | ----------- | ----------- |
 
