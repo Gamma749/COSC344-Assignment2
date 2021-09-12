@@ -162,7 +162,7 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 - This avoids many NULLs for staff with no office
 
 ##### OFFICE_OF
-| <u>Staff_ID</u><br>(REFERENCES Staff) | Street_Number<br>(REFERENCES Building) | Street_Name<br>(REFERENCES Building)  | Suburb<br>(REFERENCES Building)  | Room Number|
+| <u>Staff_ID</u><br>(REFERENCES Staff) | Street_Number<br>(REFERENCES Building) | Street_Name<br>(REFERENCES Building)  | Suburb<br>(REFERENCES Building)  | Room_Number|
 | --------------- | ---- | ----- | ------------- | ----------- |
 
 ##### LOCATED_IN (Room N:1 Building)
@@ -182,8 +182,11 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- | ------ |
 
 ##### Supervises (Staff M:1 Student)
-| <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Suburb | Salary | IRD_Num | Campus | Supervises_Student (REFERENCES Student) | 
-| --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- | ------ | ---------- |
+-- We decided to change this into it's own supervises entity.
+
+##### Supervises
+| <u>Staff_ID (REFERENCES Staff)</u> | <u>Student_ID (REFERENCES Student)</u> |
+| ---------------------------------- | -------------------------------------- |
 
 	
 ---
@@ -269,7 +272,7 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 
 ---
 # Mapped Relational Model 
-TODO: PLEASE PUT EVERY TABLE IN THE ABOVE SECTIONS DOWN HERE. SOME ARE MISSING. AAAAAA
+TODO: PLEASE PUT EVERY TABLE IN THE ABOVE SECTIONS DOWN HERE. SOME ARE MISSING. AAAAAA.
 
 ![Relation Model image](relational_model.svg) 
 
@@ -290,7 +293,7 @@ TODO: PLEASE PUT EVERY TABLE IN THE ABOVE SECTIONS DOWN HERE. SOME ARE MISSING. 
 -- Course has been modified to replace level with Postgraduate as a boolean. Having level as a string field could result in inconsistencies where typos are concerned, or shorthand is added. An example is postgraduate, post-doctorate, and postdoctorate. All three of the aforementioned technically count as postgraduate, but are written differently, becoming difficult to query. 
 -- Courses have coordinators, an as such a coordinator field has been added.
 
-| <u>Name</u> | Years_Required | Postgradute_Bool | Coordinator (REFERENCES Staff) |
+| <u>Name</u> | Years_Required | Postgradute_Bool | Coordinator_id (REFERENCES Staff) |
 | ----------- | -------------- | ---------------- | ------------------------------ |
 
 ### Paper
@@ -300,7 +303,7 @@ TODO: PLEASE PUT EVERY TABLE IN THE ABOVE SECTIONS DOWN HERE. SOME ARE MISSING. 
 ### Staff
 - Suburb has been removed and replaced with a Suburb entty that stores street names and their correspondent suburbs.
 
-| <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Salary | IRD_Num | Campus | Supervises_Student (REFERENCES Student) | Department(REFERENCES Department)|
+| <u>Staff_ID</u> | Name | Phone | Street_Number | Street_Name | Salary | IRD_Num | Campus | Department(REFERENCES Department)|
 | --------------- | ---- | ----- | ------------- | ----------- | ------ | ------- | ------ | ---------- | ----- |
 
 ### Student
@@ -390,7 +393,7 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 
 ### Course 
 
-| <u>Name</u> | Years_Required | Postgradute_Bool | Coordinator (REFERENCES Staff) |
+| <u>Name</u> | Years_Required | Postgradute_Bool | Coordinator_id (REFERENCES Staff) |
 | ----------- | -------------- | ---------------- | ------------------------------ |
 
 ### Dept_Based_In_Building
