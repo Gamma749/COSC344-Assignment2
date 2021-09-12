@@ -478,3 +478,23 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 ### OFFICE_OF
 | <u>Staff_ID</u><br>(REFERENCES Staff) | Street_Number<br>(REFERENCES Building) | Street_Name<br>(REFERENCES Building)  | Suburb<br>(REFERENCES Building)  | Room_Number|
 | --------------- | ---- | ----- | ------------- | ----------- |
+
+## TEAMWORK SUMMARY
+- ### Hayden McAlister
+    - Created template for report format
+    - Mapped entities and relationships related to Building, Room
+    - Created SQL for tables originating from Building, Room
+    - Compiled teams report+SQL fragments into single documents with similar styles
+    - Tested combined SQL
+
+- ### Nat Moore
+    - Mapped entities and relationships related to Department, Course
+    - Created SQL for tables originating from Department, Course
+
+- ### Jack Heikell
+    - Mapped entities and relationships related to Student, Staff
+    - Created SQL for tables originating from Student, Staff
+
+- ### Masaaki Fukushima
+    - Mapped entities and relationships related to Paper, Campus
+    - Created SQL for tables originating from Paper, Campus
