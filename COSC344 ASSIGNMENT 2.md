@@ -192,7 +192,7 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ##### Enrolled_In (Student 2:N Course)
 - Though originally Enrolled_In was going to be handled by data fields within the Student entity, we decided to model enrollment through a separate entity. This is below: 
 
-##### Enrolled
+##### Enrolled_In
 | <u>Student_ID</u> | <u>Course</u> |
 | ----------------- | ------------- |
 
@@ -269,6 +269,7 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 
 ---
 # Mapped Relational Model 
+TODO: PLEASE PUT EVERY TABLE IN THE ABOVE SECTIONS DOWN HERE. SOME ARE MISSING. AAAAAA
 
 ![Relation Model image](relational_model.svg) 
 
@@ -286,9 +287,11 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | ----------- | ------------------------ | --------------------------- |
 
 ### Course 
+-- Course has been modified to replace level with Postgraduate as a boolean. Having level as a string field could result in inconsistencies where typos are concerned, or shorthand is added. An example is postgraduate, post-doctorate, and postdoctorate. All three of the aforementioned technically count as postgraduate, but are written differently, becoming difficult to query. 
+-- Courses have coordinators, an as such a coordinator field has been added.
 
-| <u>Name</u> | Years_Required | Level |
-| ----------- | -------------- | ------------- |
+| <u>Name</u> | Years_Required | Postgradute_Bool | Coordinator (REFERENCES Staff) |
+| ----------- | -------------- | ---------------- | ------------------------------ |
 
 ### Paper
 | <u>Paper_Code</u> | Semester | Points | Department_Name<br>(REFERENCES Department) |
@@ -387,8 +390,8 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 
 ### Course 
 
-| <u>Name</u> | Years_Required | Level |
-| ----------- | -------------- | ------------- |
+| <u>Name</u> | Years_Required | Postgradute_Bool | Coordinator (REFERENCES Staff) |
+| ----------- | -------------- | ---------------- | ------------------------------ |
 
 ### Dept_Based_In_Building
 | <u>Dept_Name</u><br>(REFERENCES Department) | <u>Street_Number</u><br>(REFERENCES Building) | <u>Street_Name</u><br>(REFERENCES Building)  | <u>Suburb</u><br>(REFERENCES Building)  |
