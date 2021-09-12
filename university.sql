@@ -13,6 +13,20 @@ INSERT INTO postcode VALUES ("Albany Street", "Dunedin North", 9016);
 INSERT INTO postcode VALUES ("Riccarton Avenue", "Christchurch Central", 8011);
 INSERT INTO postcode VALUES ("Mein Street", "Wellington", 6242);
 
+DROP TABLE suburb cascade constraints;
+CREATE TABLE suburb(
+	street_name VARCHAR2 (50),
+	suburb VARCHAR2 (50),
+	CONSTRAINT pkey PRIMARY KEY (street_name)
+);
+
+INSERT INTO suburb VALUES ("Great King Street", "Dunedin North");
+INSERT INTO suburb VALUES ("Union Street", "Dunedin North");
+INSERT INTO suburb VALUES ("Albany Street", "Dunedin North");
+INSERT INTO suburb VALUES ("Riccarton Avenue", "Christchurch Central");
+INSERT INTO suburb VALUES ("Mein Street", "Wellington");
+
+
 DROP TABLE building cascade constraints;
 CREATE TABLE building(
     street_number NUMBER,
@@ -85,7 +99,7 @@ CREATE TABLE paper_lectured_in_room(
 
     CONSTRAINT pkey PRIMARY KEY(paper_code, street_number, street_name, suburb, room_number),
     CONSTRAINT room_reference FOREIGN KEY (street_number, street_name, suburb, room_number) REFERENCES building(street_number, street_name, suburb, room_number),
-    CONSTRAINT paper_reference FOREIGN KEY (paper_code) REFERENCES paper(paper_code)
+    CONSTRAINT paper_reference FOREIGN KEY (paper_code) --REFERENCES paper(paper_code)
 );
 
 INSERT INTO paper_lectured_in_room VALUES ("COSC344", 111, "Union Street", "Dunedin North", 2);
@@ -107,31 +121,74 @@ INSERT INTO department VALUES ('Zoology', 31, 4);
 INSERT INTO department VALUES ('Botany', 12, 5);
 INSERT INTO department VALUES ('Theology', 11, 1);
 
+DROP TABLE campus;
+CREATE TABLE campus (
+	name				VARCHAR2(80)		NOT NULL	PRIMARY KEY,
+	street_number       NUMBER,      
+    street_name         VARCHAR2(50),  
+    suburb              VARCHAR2(50),
+	phone				VARCHAR2(20),
+	email				VARCHAR2(40),
+	dean_id				NUMBER(8,0)			REFERENCES staff(staff_ID)
+);
+
+INSERT INTO campus VALUES ('Dunedin', 362, 'Leith Street', 'Dunedin Central', '0800 80 80 98', 'university@otago.ac.nz', 'ABCDEFGH');
+
+DROP TABLE student cascade constraints;
+CREATE TABLE student(
+	student_id NUMBER(8,0) NOT NULL PRIMARY KEY,
+	name VARCHAR2(50) NOT NULL, 
+	phone VARCHAR2(50) NOT NULL,
+	street_number NUMBER NOT NULL, 
+	street_name VARCHAR2(50) NOT NULL,
+	enrollment DATE NOT NULL,
+	graduation DATE, 
+	campus VARCHAR2(80) REFERENCES campus(name)
+	);
+
+DROP TABLE staff cascade constraints;
+CREATE TABLE staff(
+    staff_id NUMBER(8,0) NOT NULL PRIMARY KEY,
+	name VARCHAR(50) NOT NULL, 
+	phone VARCHAR(50) NOT NULL,
+	street_number NUMBER NOT NULL,
+    street_name VARCHAR2(50) NOT NULL,
+	salary NUMBER NOT NULL, 
+	IRD_Num NUMBER NOT NULL, 
+	campus VARCHAR2(50) NOT NULL REFERENCES campus(name),
+	department VARCHAR2(50) NOT NULL REFERENCES department(dname)
+);
+
+INSERT INTO staff VALUES(12345,"John Smith","027123456789","1","Example Avenue",80000,12345678,"Dunedin","English");
+INSERT INTO staff VALUES(23456,"John Smith","027987654321","2","Example Avenue",85000,12345678,"Dunedin","Zoology");
+INSERT INTO staff VALUES(34567,"John Smith","027000000001","3","Example Avenue",92000,12345678,"Dunedin","Zoology");
+INSERT INTO staff VALUES(45678,"John Smith","02123456789","1","Demonstration Street",50000,12345678,"Dunedin","Computer Science");
+INSERT INTO staff VALUES(56789,"John Smith","02234567891","100","Test Road",15000,12345678,"Dunedin","Computer Science");
+
+DROP TABLE supervises cascade constraints;
+CREATE TABLE supervises(
+	staff_id NUMBER(8,0) NOT NULL,
+	student_id NUMBER(8,0) NOT NULL,
+	CONSTRAINT pkey PRIMARY KEY(staff_id, student_id)
+	);
+
 DROP TABLE course cascade constraints;
 CREATE TABLE course(
     cname VARCHAR2(25) PRIMARY KEY,
     years_required INT NOT NULL,
-    clevel VARCHAR2(25) NOT NULL
+    postgraduate_bool NUMBER(1) NOT NULL
+	coordinator_id NUMBER(8,0) REFERENCES staff(staff_id)
  );
 
-INSERT INTO course VALUES('Bachelor of Arts', 3, 'Undergraduate');
-INSERT INTO course VALUES('Bachelor of Science', 3, 'Undergraduate');
-INSERT INTO course VALUES('Diploma in Language', 3, 'Undergraduate');
-INSERT INTO course VALUES('Doctor of Philosophy', 3, 'Postgraduate');
-INSERT INTO course VALUES('Master of Finance', 1, 'Postgraduate');
-
-DROP TABLE staff cascade constraints;
-CREATE TABLE staff(
-    staff_id INT PRIMARY KEY
-);
-
-INSERT INTO staff VALUES(12345);
-INSERT INTO staff VALUES(23456);
-INSERT INTO staff VALUES(34567);
-INSERT INTO staff VALUES(45678);
-INSERT INTO staff VALUES(56789);
+INSERT INTO course VALUES('Bachelor of Arts', 3, 0, 12345);
+INSERT INTO course VALUES('Bachelor of Science', 3, 0, 23456);
+INSERT INTO course VALUES('Diploma in Language', 3, 0, 34567);
+INSERT INTO course VALUES('Doctor of Philosophy', 3, 1, 45678);
+INSERT INTO course VALUES('Master of Finance', 1, 1, 56789);
 
 
+
+-- Possibly redundant/not needed.
 DROP TABLE staff_member_works_for_department cascade constraints;
 CREATE TABLE staff_member_works_for_department(
     staff_member_id INT,
@@ -174,10 +231,10 @@ INSERT INTO paper_counts_toward_course VALUES(3, 'Diploma in Language');
 INSERT INTO paper_counts_toward_course VALUES(4, 'Doctor of Philosophy');
 INSERT INTO paper_counts_toward_course VALUES(5, 'Master of Finance');
 
-/* Paper and Campus */
+-- Paper and Campus 
 DROP TABLE paper;
 DROP TABLE paper_semesters;
-DROP TABLE campus;
+
 
 DROP TABLE teaches;
 DROP TABLE offered_at;
@@ -207,38 +264,40 @@ INSERT INTO paper_semesters VALUES ('COSC244', 's2');
 INSERT INTO paper_semesters VALUES ('MICN401', 'fy');
 INSERT INTO paper_semesters VALUES ('MICN501', 'fy');
 
-CREATE TABLE campus (
-	name				VARCHAR2(80)		NOT NULL	PRIMARY KEY,
-	street_number       NUMBER,      
-    street_name         VARCHAR2(50),  
-    suburb              VARCHAR2(50),
-	phone				VARCHAR2(20),
-	email				VARCHAR2(40),
-	dean_id				CHAR(8)			REFERENCES staff(staff_ID)
-	/*Replace with actual format*/
-);
 
-INSERT INTO campus VALUES ('Dunedin', 362, 'Leith Street', 'Dunedin Central', '0800 80 80 98', 'university@otago.ac.nz', 'ABCDEFGH');
 
 CREATE TABLE teaches (
 	teaching_id		CHAR(8)		NOT NULL	REFERENCES staff(staff_ID),		
 	paper_code		CHAR(7)		NOT NULL	REFERENCES paper(paper_code),
 	PRIMARY KEY(teaching_id, paper_code));
 
+DROP TABLE coordinates;
+CREATE TABLE coordinates (
+	teaching_id		CHAR(8)		NOT NULL	REFERENCES staff(staff_ID),		
+	paper_code		CHAR(7)		NOT NULL	REFERENCES paper(paper_code),
+	PRIMARY KEY(teaching_id, paper_code));
+
+DROP TABLE office_in;
+CREATE TABLE office_in ( 
+	staff_id NUMBER(8,0) NOT NULL REFERENCES staff(staff_id),
+	street_number NOT NULL REFERENCES building(street_number),
+	street_name NOT NULL REFERENCES building(street_name),
+	room_number NOT NULL REFERENCES building(room_number),
+	CONSTRAINT pkey PRIMARY KEY(staff_id, street_number, street_name, suburb, room_number));
+	
+	
 CREATE TABLE offered_at (
 	paper_code		CHAR(8)			NOT NULL	REFERENCES paper(paper_code),
 	campus_name		VARCHAR(80)		NOT NULL	REFERENCES campus(name),
 	PRIMARY KEY(paper_code, campus_name)
 );
-	
+
 CREATE TABLE takes (
-	student_id		CHAR(8)			NOT NULL	REFERENCES student(student_id),
-	/* replace with proper format later */
+	student_id		NUMBER(8,0)			NOT NULL	REFERENCES student(student_id),
 	paper_code 		CHAR(7)			NOT NULL	REFERENCES paper(paper_code),
 	PRIMARY KEY(student_id, paper_code)
 );
 	
-/* Also, please add campus name to the student table. */
 DROP TABLE department_offers_major_for_course;
 
 CREATE TABLE department_offers_major_for_course(
