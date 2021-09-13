@@ -90,8 +90,8 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | ----------- | ------------------------ | --------------------------- |
 
 ### COURSE 
-| <u>Name</u> | Years_Required | Postgradute_Bool | Coordinator_id (REFERENCES Staff) |
-| ----------- | -------------- | ---------------- | ------------------------------ |
+| <u>Name</u> | Years_Required | Postgradute_Bool |
+| ----------- | -------------- | ---------------- | 
 
 ### PAPER
 | <u>Paper_code</u> | Semester (Multi-value) | Points |
