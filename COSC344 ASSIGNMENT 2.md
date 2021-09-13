@@ -187,7 +187,7 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 | --------------- | ---- | ----- | ------------- | ----------- | ------ | ------ | ------- | ------ |
 
 ### SUPERVISES (Staff M:1 Student)
-- We decided to change this into it's own supervises entity, to eliminate excessive NULL's if many students did not have supervisors.
+- We decided to change this into its own supervises entity, to eliminate excessive NULL's if many students did not have supervisors.
 
 ##### STAFF_SUPERVISES_STUDENT
 | <u>Staff_ID (REFERENCES Staff)</u> | <u>Student_ID (REFERENCES Student)</u> |
