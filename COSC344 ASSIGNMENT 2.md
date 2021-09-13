@@ -1,4 +1,4 @@
-# COSC344 Assignment 2 Report
+# COSC344 Assignment 2 Report: Mapping and Normalization
 
 Leader: Hayden McAlister
 
