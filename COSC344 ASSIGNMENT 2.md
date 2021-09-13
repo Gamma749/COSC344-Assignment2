@@ -145,14 +145,6 @@ Members: Masaaki Fukushima, Jack Heikell, Nat Moore
 ---
 ## Step 4: Mapping of Binary 1:N Relationships
 
-### OFFERS (Department 1:N Paper)
-- Add as foreign key to Paper the primary key of Department
-
-##### PAPER
-| <u>Paper_Code</u> | Semester | Points | Department_Name<br>(REFERENCES Department) |
-| ----------------- | -------- | ------ | ------------------------------------------ | 
-- The department name is added to the paper table to represent any number of papers belonging to a single department. 
-
 ### LOCATED_ON (Building N:1 Campus)
 - Add as foreign key to Building the primary key of Campus
 
