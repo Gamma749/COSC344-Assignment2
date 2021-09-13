@@ -153,23 +153,16 @@
     <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="50.5916" y="1606.57">coordinator</text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="-367.144" y="507.386" width="198.5" height="18"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-367.144" y="507.386" width="198.5" height="18"/>
-    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-267.894" y="521.386">PAPER</text>
-    <rect style="fill: #ffffff" x="-367.144" y="525.386" width="198.5" height="76"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-367.144" y="525.386" width="198.5" height="76"/>
+    <rect style="fill: #ffffff" x="-367.144" y="507.386" width="141" height="18"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-367.144" y="507.386" width="141" height="18"/>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-296.644" y="521.386">PAPER</text>
+    <rect style="fill: #ffffff" x="-367.144" y="525.386" width="141" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-367.144" y="525.386" width="141" height="52"/>
     <polygon style="fill: #000000" points="-364.144,539.386 -362.144,542.386 -360.144,539.386 -362.144,536.386 "/>
     <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="-358.144" y="549.386">paper_code</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-358.144" y1="551.786" x2="-175.644" y2="551.786"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-358.144" y1="551.786" x2="-233.144" y2="551.786"/>
     <ellipse style="fill: #000000" cx="-362.144" cy="563.386" rx="2" ry="2"/>
     <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-358.144" y="573.386">points</text>
-    <ellipse style="fill: #000000" cx="-362.144" cy="587.386" rx="2" ry="2"/>
-    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-358.144" y="597.386">department_name</text>
-  </g>
-  <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-367.144,587.386 -417.678,587.386 -417.678,845.5 -400.81,845.5 "/>
-    <polygon style="fill: #000000" points="-393.31,845.5 -403.31,850.5 -400.81,845.5 -403.31,840.5 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-393.31,845.5 -403.31,850.5 -400.81,845.5 -403.31,840.5 "/>
   </g>
   <g>
     <rect style="fill: #ffffff" x="-400.828" y="1059.53" width="233" height="18"/>
@@ -236,7 +229,7 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="499.77,1280 489.77,1285 492.27,1280 489.77,1275 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-367.144,539.386 -396.693,539.386 -396.693,435.92 712.832,435.92 712.832,496 767.836,496 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-367.144,539.386 -396.692,539.386 -396.692,435.92 712.832,435.92 712.832,496 767.836,496 "/>
     <polygon style="fill: #000000" points="775.336,496 765.336,501 767.836,496 765.336,491 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="775.336,496 765.336,501 767.836,496 765.336,491 "/>
   </g>
@@ -287,20 +280,20 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-405.188,1474.74 -415.188,1479.74 -412.688,1474.74 -415.188,1469.74 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="32.7151" y="1035.27" width="210.25" height="18"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="32.7151" y="1035.27" width="210.25" height="18"/>
+    <rect style="fill: #ffffff" x="32.7152" y="1035.27" width="210.25" height="18"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="32.7152" y="1035.27" width="210.25" height="18"/>
     <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="137.84" y="1049.27">STAFF_WORKS_FOR_DEPARTMENT</text>
-    <rect style="fill: #ffffff" x="32.7151" y="1053.27" width="210.25" height="52"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="32.7151" y="1053.27" width="210.25" height="52"/>
-    <polygon style="fill: #000000" points="35.7151,1067.27 37.7151,1070.27 39.7151,1067.27 37.7151,1064.27 "/>
-    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="41.7151" y="1077.27">department_name</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="41.7151" y1="1079.67" x2="224.215" y2="1079.67"/>
-    <polygon style="fill: #000000" points="35.7151,1091.27 37.7151,1094.27 39.7151,1091.27 37.7151,1088.27 "/>
-    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="41.7151" y="1101.27">staff_id</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="41.7151" y1="1103.67" x2="224.215" y2="1103.67"/>
+    <rect style="fill: #ffffff" x="32.7152" y="1053.27" width="210.25" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="32.7152" y="1053.27" width="210.25" height="52"/>
+    <polygon style="fill: #000000" points="35.7152,1067.27 37.7152,1070.27 39.7152,1067.27 37.7152,1064.27 "/>
+    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="41.7152" y="1077.27">department_name</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="41.7152" y1="1079.67" x2="224.215" y2="1079.67"/>
+    <polygon style="fill: #000000" points="35.7152,1091.27 37.7152,1094.27 39.7152,1091.27 37.7152,1088.27 "/>
+    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="41.7152" y="1101.27">staff_id</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="41.7152" y1="1103.67" x2="224.215" y2="1103.67"/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="32.7151,1091.27 -67.5564,1091.27 -67.5564,1091.53 -158.092,1091.53 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="32.7152,1091.27 -67.5564,1091.27 -67.5564,1091.53 -158.092,1091.53 "/>
     <polygon style="fill: #000000" points="-165.592,1091.53 -155.592,1086.53 -158.092,1091.53 -155.592,1096.53 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-165.592,1091.53 -155.592,1086.53 -158.092,1091.53 -155.592,1096.53 "/>
   </g>
@@ -310,7 +303,7 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-393.31,845.5 -403.31,850.5 -400.81,845.5 -403.31,840.5 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="32.7151,1067.27 18.7671,1067.27 18.7671,1049.8 -408.424,1049.8 -408.424,845.5 -400.81,845.5 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="32.7152,1067.27 18.7671,1067.27 18.7671,1049.8 -408.424,1049.8 -408.424,845.5 -400.81,845.5 "/>
     <polygon style="fill: #000000" points="-393.31,845.5 -403.31,850.5 -400.81,845.5 -403.31,840.5 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-393.31,845.5 -403.31,850.5 -400.81,845.5 -403.31,840.5 "/>
   </g>
@@ -390,7 +383,7 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="194.764,544 184.764,549 187.264,544 184.764,539 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="139.967,262.281 156.937,262.281 156.937,568 187.264,568 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="139.967,262.28 156.937,262.28 156.937,568 187.264,568 "/>
     <polygon style="fill: #000000" points="194.764,568 184.764,573 187.264,568 184.764,563 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="194.764,568 184.764,573 187.264,568 184.764,563 "/>
   </g>
@@ -400,7 +393,7 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="374.736,544 384.736,539 382.236,544 384.736,549 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="465.235,559.265 418.868,559.265 418.868,568 382.236,568 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="465.236,559.266 418.868,559.266 418.868,568 382.236,568 "/>
     <polygon style="fill: #000000" points="374.736,568 384.736,563 382.236,568 384.736,573 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="374.736,568 384.736,563 382.236,568 384.736,573 "/>
   </g>
@@ -443,22 +436,22 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="265.328,1524.57 275.328,1519.57 272.828,1524.57 275.328,1529.57 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="-91.6472" y="574.655" width="141" height="18"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-91.6472" y="574.655" width="141" height="18"/>
-    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-21.1472" y="588.655">PAPER_SEMESTER</text>
-    <rect style="fill: #ffffff" x="-91.6472" y="592.655" width="141" height="52"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-91.6472" y="592.655" width="141" height="52"/>
-    <polygon style="fill: #000000" points="-88.6472,606.655 -86.6472,609.655 -84.6472,606.655 -86.6472,603.655 "/>
-    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="-82.6472" y="616.655">paper_code</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-82.6472" y1="619.055" x2="42.3528" y2="619.055"/>
-    <polygon style="fill: #000000" points="-88.6472,630.655 -86.6472,633.655 -84.6472,630.655 -86.6472,627.655 "/>
-    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="-82.6472" y="640.655">semester</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-82.6472" y1="643.055" x2="42.3528" y2="643.055"/>
+    <rect style="fill: #ffffff" x="-91.6472" y="574.654" width="141" height="18"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-91.6472" y="574.654" width="141" height="18"/>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-21.1472" y="588.654">PAPER_SEMESTER</text>
+    <rect style="fill: #ffffff" x="-91.6472" y="592.654" width="141" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-91.6472" y="592.654" width="141" height="52"/>
+    <polygon style="fill: #000000" points="-88.6472,606.654 -86.6472,609.654 -84.6472,606.654 -86.6472,603.654 "/>
+    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="-82.6472" y="616.654">paper_code</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-82.6472" y1="619.054" x2="42.3528" y2="619.054"/>
+    <polygon style="fill: #000000" points="-88.6472,630.654 -86.6472,633.654 -84.6472,630.654 -86.6472,627.654 "/>
+    <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="-82.6472" y="640.654">semester</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-82.6472" y1="643.054" x2="42.3528" y2="643.054"/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-91.6472,606.655 -130.146,606.655 -130.146,539.386 -158.908,539.386 "/>
-    <polygon style="fill: #000000" points="-166.408,539.386 -156.408,534.386 -158.908,539.386 -156.408,544.386 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-166.408,539.386 -156.408,534.386 -158.908,539.386 -156.408,544.386 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-91.6472,606.654 -158.896,606.654 -158.896,539.386 -216.408,539.386 "/>
+    <polygon style="fill: #000000" points="-223.908,539.386 -213.908,534.386 -216.408,539.386 -213.908,544.386 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-223.908,539.386 -213.908,534.386 -216.408,539.386 -213.908,544.386 "/>
   </g>
   <g>
     <rect style="fill: #ffffff" x="-117.94" y="447.036" width="141" height="18"/>
@@ -474,12 +467,12 @@
     <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-108.94" y1="515.436" x2="16.06" y2="515.436"/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-117.94,479.036 -143.292,479.036 -143.292,539.386 -158.908,539.386 "/>
-    <polygon style="fill: #000000" points="-166.408,539.386 -156.408,534.386 -158.908,539.386 -156.408,544.386 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-166.408,539.386 -156.408,534.386 -158.908,539.386 -156.408,544.386 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-117.94,479.036 -172.042,479.036 -172.042,539.386 -216.408,539.386 "/>
+    <polygon style="fill: #000000" points="-223.908,539.386 -213.908,534.386 -216.408,539.386 -213.908,544.386 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-223.908,539.386 -213.908,534.386 -216.408,539.386 -213.908,544.386 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="23.06,503.036 48.4652,503.036 48.4652,382.159 -90.3333,382.159 -90.3333,99.9354 188.806,99.9354 188.806,194.716 153.417,194.716 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="23.06,503.036 48.4652,503.036 48.4652,382.158 -90.3334,382.158 -90.3334,99.9354 188.806,99.9354 188.806,194.716 153.417,194.716 "/>
     <polygon style="fill: #000000" points="145.917,194.716 155.917,189.716 153.417,194.716 155.917,199.716 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="145.917,194.716 155.917,189.716 153.417,194.716 155.917,199.716 "/>
   </g>
@@ -497,22 +490,22 @@
     <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-392.756" y1="1622.29" x2="-267.756" y2="1622.29"/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-250.656,1585.89 -250.656,1585.66 -169.821,1585.66 -169.821,1620.97 489.439,1620.97 489.439,1280 492.27,1280 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-250.656,1585.89 -250.656,1585.66 -169.821,1585.66 -169.821,1620.97 489.438,1620.97 489.438,1280 492.27,1280 "/>
     <polygon style="fill: #000000" points="499.77,1280 489.77,1285 492.27,1280 489.77,1275 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="499.77,1280 489.77,1285 492.27,1280 489.77,1275 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-401.756,1609.89 -534.348,1609.89 -534.348,360.054 -150.901,360.054 -150.901,539.386 -158.908,539.386 "/>
-    <polygon style="fill: #000000" points="-166.408,539.386 -156.408,534.386 -158.908,539.386 -156.408,544.386 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-166.408,539.386 -156.408,534.386 -158.908,539.386 -156.408,544.386 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-401.756,1609.89 -534.348,1609.89 -534.348,360.054 -191.197,360.054 -191.197,539.386 -216.408,539.386 "/>
+    <polygon style="fill: #000000" points="-223.908,539.386 -213.908,534.386 -216.408,539.386 -213.908,544.386 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-223.908,539.386 -213.908,534.386 -216.408,539.386 -213.908,544.386 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="-371.892" y="965.011" width="141" height="18"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-371.892" y="965.011" width="141" height="18"/>
-    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-301.392" y="979.011">TEACHES</text>
-    <rect style="fill: #ffffff" x="-371.892" y="983.011" width="141" height="52"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-371.892" y="983.011" width="141" height="52"/>
-    <polygon style="fill: #000000" points="-368.892,997.011 -366.892,1000.01 -364.892,997.011 -366.892,994.011 "/>
+    <rect style="fill: #ffffff" x="-371.892" y="965.01" width="141" height="18"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-371.892" y="965.01" width="141" height="18"/>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-301.392" y="979.01">TEACHES</text>
+    <rect style="fill: #ffffff" x="-371.892" y="983.01" width="141" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-371.892" y="983.01" width="141" height="52"/>
+    <polygon style="fill: #000000" points="-368.892,997.01 -366.892,1000.01 -364.892,997.01 -366.892,994.01 "/>
     <text font-size="19.2" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="-362.892" y="1007.01">paper_code</text>
     <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-362.892" y1="1009.41" x2="-237.892" y2="1009.41"/>
     <polygon style="fill: #000000" points="-368.892,1021.01 -366.892,1024.01 -364.892,1021.01 -366.892,1018.01 "/>
@@ -525,8 +518,8 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-165.592,1091.53 -155.592,1086.53 -158.092,1091.53 -155.592,1096.53 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-230.892,997.011 -74.9228,997.011 -74.9228,734.665 -146.275,734.665 -146.275,539.386 -158.908,539.386 "/>
-    <polygon style="fill: #000000" points="-166.408,539.386 -156.408,534.386 -158.908,539.386 -156.408,544.386 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-166.408,539.386 -156.408,534.386 -158.908,539.386 -156.408,544.386 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-230.892,997.01 -74.9228,997.01 -74.9228,734.666 -181.106,734.666 -181.106,539.386 -216.408,539.386 "/>
+    <polygon style="fill: #000000" points="-223.908,539.386 -213.908,534.386 -216.408,539.386 -213.908,544.386 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-223.908,539.386 -213.908,534.386 -216.408,539.386 -213.908,544.386 "/>
   </g>
 </svg>
