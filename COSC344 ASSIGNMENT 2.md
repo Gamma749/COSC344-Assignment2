@@ -486,6 +486,7 @@ Definition: 3NF and for every non-trivial functional dependency X->A, X is a sup
 - ### Jack Heikell
     - Mapped entities and relationships related to Student, Staff
     - Created SQL for tables originating from Student, Staff
+    - Updated some aspects of Course (and related) tables in SQL
 
 - ### Masaaki Fukushima
     - Mapped entities and relationships related to Paper, Campus
